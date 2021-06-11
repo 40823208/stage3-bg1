@@ -183,7 +183,7 @@ vertical: body pane on the botton</t>
 <t tx="leo.20200818165438.1">&lt;head&gt;
     &lt;meta charset="utf-8"&gt;
 
-    &lt;title&gt;reveal.js – The HTML Presentation Framework&lt;/title&gt;
+    &lt;title&gt;stage3-bg1&lt;/title&gt;
 
     &lt;meta name="description" content="A framework for easily creating beautiful presentations using HTML"&gt;
     &lt;meta name="author" content="Hakim El Hattab"&gt;
@@ -208,15 +208,13 @@ vertical: body pane on the botton</t>
     @others
 &lt;/div&gt;</t>
 <t tx="leo.20200818170328.1">&lt;section&gt;
-    &lt;a href="https://revealjs.com"&gt;
-        &lt;img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="reveal.js logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"&gt;
-    &lt;/a&gt;
-    &lt;h3&gt;The HTML Presentation Framework&lt;/h3&gt;
+    &lt;h1&gt;CD2021 協同產品設計實習&lt;/h1&gt;
+
+    &lt;h3&gt;stage3-bg1分組報告&lt;/h3&gt;
     &lt;p&gt;
-        &lt;small&gt;Created by &lt;a href="http://hakim.se"&gt;Hakim El Hattab&lt;/a&gt; and &lt;a href="https://github.com/hakimel/reveal.js/graphs/contributors"&gt;contributors&lt;/a&gt;&lt;/small&gt;
+        &lt;small&gt;小組成員 &lt;a href="https://github.com/40823208/cd2021"&gt;40823208&lt;/a&gt;，&lt;a href="https://github.com/40823213/cd2021"&gt;40823213&lt;/a&gt;，&lt;a href="https://github.com/40823232/cd2021"&gt;40823232&lt;/a&gt;，&lt;a href="https://github.com/40823234/cd2021"&gt;40823234&lt;/a&gt;，&lt;a href="https://github.com/40823235/cd2021"&gt;40823235&lt;/a&gt;， &lt;a href="https://github.com/40823245/cd2021"&gt;40823245&lt;/a&gt;，&lt;a href="https://github.com/40823246/cd2021"&gt;40823246&lt;/a&gt;，&lt;a href="https://github.com/40823251/cd2021"&gt;40823251&lt;/a&gt;&lt;/small&gt;
     &lt;/p&gt;
 &lt;/section&gt;
-
 </t>
 <t tx="leo.20200818170535.1">&lt;section&gt;
     &lt;h2&gt;Hello There&lt;/h2&gt;
