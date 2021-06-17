@@ -1316,10 +1316,71 @@ print(output)
 </tr>
 </tbody>
 </table>
+<hr/></div>
 </div>
-</div>
-<p><strong> </strong></p>
-<h2>掃地機器人</h2>
+<p><span><strong>日期:20210604</strong></span></p>
+<p><span>加入rgb偵測啟動夾爪。</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" data-mce-fragment="1" frameborder="0" height="315" src="https://www.youtube.com/embed/2y-bOCHtlqg" title="YouTube video player" width="560"></iframe></p>
+<p><a href="https://40823246.github.io/cd2021/downloads/0604-stage1-bg3.zip">downloads</a></p>
+<p>主要程式碼:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> #rgb辨識-----
+        returnCode,resolution,image=vrep.simxGetVisionSensorImage(clientID,vision_handle,0,opmode)#取得圖片
+        color = np.asarray(image)#將圖片數據轉成矩陣形式
+        color.shape = (resolution[1], resolution[0], 3)
+        color = color.astype(np.float)#-1~1
+        color[color &lt; 0] += 255
+        color = np.fliplr(color)#因為得到得圖片數據是上下左右顛倒的，所以要將數據在顛倒一次才能轉正
+        color = color.astype(np.uint8)#0~255
+        rgb=color[1]
+        rgb2=rgb[1]
+        print(rgb2)
+        rgb3=[139,139,163]#掃地機器人的顏色
+        rgb4=[0,0,147]
+        #rgb辨識-----
+        
+        #夾爪程式(rgb作動)-----
+        if all(rgb2==rgb3):
+            vrep.simxSetJointTargetPosition(clientID,vertical_handle,0.5,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,cam_handle,angle*90,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,vertical_handle,0.1,opmode)
+            time.sleep(5)
+            vrep.simxSetJointTargetPosition(clientID,cam_handle,angle*0,opmode)
+        #夾爪程式(rgb作動)-----</pre>
+<p><strong>日期:20210618</strong></p>
+<p><span>更新RGB辨識程式，因為每個產品顏色多少有一點點的差異，所以把條件設置在一定範圍內。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#rgb辨識-----
+        returnCode,resolution,image=vrep.simxGetVisionSensorImage(clientID,vision_handle,0,opmode)#取得圖片
+        color = np.asarray(image)#將圖片數據轉成矩陣形式
+        color.shape = (resolution[1], resolution[0], 3)
+        color = color.astype(np.float)#-1~1
+        color[color &lt; 0] += 255
+        color = np.fliplr(color)#因為得到得圖片數據是上下左右顛倒的，所以要將數據在顛倒一次才能轉正
+        color = color.astype(np.uint8)#0~255
+        rgb=color[1]
+        rgb2=rgb[1]
+        r=rgb2[0]
+        g=rgb2[1]
+        b=rgb2[2]
+        print(rgb2)
+        rgb3=[139,139,163]#掃地機器人的顏色
+        rgb4=[0,0,147]
+        #rgb辨識-----
+        
+        #夾爪程式(rgb作動)-----
+        if 167&gt;b&gt;161 and 142&gt;r&gt;136 and 142&gt;g&gt;136:#設置一定範圍
+            vrep.simxSetJointTargetPosition(clientID,vertical_handle,0.5,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,cam_handle,angle*90,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,vertical_handle,0.1,opmode)
+            time.sleep(5)
+            vrep.simxSetJointTargetPosition(clientID,cam_handle,angle*0,opmode)
+        #夾爪程式(rgb作動)-----</pre>
+<p><a href="https://40823246.github.io/cd2021/downloads/0618-stage1-bg3.zip">檔案下載</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" data-mce-fragment="1" frameborder="0" height="315" src="https://www.youtube.com/embed/5DIH8zTgn8E" title="YouTube video player" width="560"></iframe></p>
+<p><strong> </strong></p><h2>掃地機器人</h2>
 <h4><strong>掃地機器人</strong></h4>
 <h4><strong>測試組員:40823245</strong></h4>
 <p><strong><a href="/downloads/stage1-bg1/text.ttt">第一版</a>(<a href="/downloads/stage1-bg1/text.py">py檔</a>)    日期:2021/05/05<br/><iframe allowfullscreen="allowfullscreen" data-mce-fragment="1" height="300" src="https://www.youtube.com/embed/QHVSKg0OuRg" width="400"></iframe><br/>說明:先利用簡單的機構去測試是否遷入成功及程式是否可執行。</strong></p>
